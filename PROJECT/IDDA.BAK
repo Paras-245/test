@@ -1,0 +1,33 @@
+#include<conio.h>
+#include<graphics.h>
+int main()
+{
+    int gd = DETECT,gm;
+    initgraph(&gd,&gm,"C://TURBOC3//BGI");
+    int x1 = 100,y1 = 100,xf 200,yf= 200;
+    int dev = 0, dx = (xf-x1), dy = (yf-y1),m = dy/dx;
+    int x = x1,y = y1;
+    if(m<=1){
+    	while(x<=xf){
+    	if(dev<0){
+    		x= x+1;
+    		y = y+1;
+    		dev = dev+(dx-dy);}
+    	else{
+    		x=x+1;
+    		dev = dev - dy;}
+    	putpixel(x,y,RED);}
+    }
+    else{
+    	while(y<=yf){
+        if(dev<0){
+            y= y+1;
+            x = x+1;
+            dev = dev+(dy-dx);}
+        else{
+            y=y+1;
+            dev = dev - dx;}
+        putpixel(x,y,RED);}
+    getch();
+    closegraph();
+    return 0;}

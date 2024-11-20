@@ -1,0 +1,32 @@
+#include<conio.h>
+#include<graphics.h>
+void ff(int x ,int y,int fcolor,int bcolor)
+{
+    int current = getpixel(x,y);
+    if(current != bcolor)
+    {
+	    putpixel(x,y,fcolor);
+        ff(x+1,y,fcolor,bcolor);
+        ff(x-1,y,fcolor,bcolor);
+        ff(x,y+1,fcolor,bcolor);
+        ff(x,y-1,fcolor,bcolor);
+        ff(x+1,y+1,fcolor,bcolor);
+        ff(x-1,y+1,fcolor,bcolor);
+        ff(x+1,y-1,fcolor,bcolor);
+        ff(x-1,y-1,fcolor,bcolor);
+    }
+}
+int main()
+{
+    int gd = DETECT,gm;
+    initgraph(&gd,&gm,"C://TURBOC3//BGI");
+    rectangle(100,100,200,200);
+    setcolor(WHITE);
+    int x = 150,y = 150;
+    int fcolor = YELLOW;
+    int bcolor = WHITE;
+    floodfill(x,y,fcolor,bcolor);
+    getch();
+    closegraph();
+    return 0;
+ }
